@@ -1,0 +1,54 @@
+/* Основной контейнер с контентом */
+.content-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 160px; /* Отступы для боковых элементов */
+}
+
+/* Общие стили для боковых элементов */
+.side-element {
+  position: absolute;
+  top: 0;
+  width: 140px;
+  height: 100%;
+  pointer-events: none; /* Чтобы не мешали взаимодействию с контентом */
+}
+
+/* Левый декоративный элемент */
+.left-decoration {
+  left: 0;
+  background: url('left-image.png') center no-repeat;
+  background-size: contain;
+  animation: floatAnimation 3s ease-in-out infinite alternate;
+}
+
+/* Правый декоративный элемент */
+.right-decoration {
+  right: 0;
+  background: url('right-image.png') center no-repeat;
+  background-size: contain;
+  animation: pulseAnimation 2s ease infinite;
+}
+
+/* Анимации */
+@keyframes floatAnimation {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+@keyframes pulseAnimation {
+  0% { opacity: 0.8; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.8; transform: scale(0.95); }
+}
+
+/* Для адаптивности */
+@media (max-width: 768px) {
+  .content-container {
+    padding: 0 20px;
+  }
+  .side-element {
+    display: none; /* Скрываем на мобильных */
+  }
+}
